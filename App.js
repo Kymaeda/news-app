@@ -1,13 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { SafeAreaView, StyleSheet, FlatList } from 'react-native';
 import ListItem from './components/ListItem';
+import articles from './news';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   itemContainer: {
     height: 100,
@@ -33,14 +32,25 @@ const styles = StyleSheet.create({
   },
   source: {
     fontSize: 12,
-    color: 'gray'
+    color: 'gray',
   },
 });
 
 export default function App() {
+  const renderItem = ({ item }) => (
+    <ListItem
+      imageUrl={item.urlToImage}
+      description={item.title}
+      auther={item.auther}
+    />
+  );
   return (
-    <View style={styles.container}>
-      <ListItem />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={articles}
+        renderItem={renderItem}
+        keyExtractor={(_item, index) => index.toString()}
+      />
+    </SafeAreaView>
   );
 }

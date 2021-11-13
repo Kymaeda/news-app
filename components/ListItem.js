@@ -30,29 +30,23 @@ const styles = StyleSheet.create({
   },
 });
 
-const ListItem = () => {
+const ListItem = ({auther, imageUrl, description}) => {
   return (
     <View style={styles.itemContainer}>
       <View style={styles.leftContainer}>
         <Image
           style={styles.thumbnail}
-          source={{ uri: 'https://picsum.photos/200/300' }}
+          source={{ uri: imageUrl }}
         />
       </View>
       <View style={styles.rightContainer}>
         <Text numberOfLines={3} style={styles.description}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          {description}
         </Text>
-        <Text style={styles.source}>KYM News</Text>
+        <Text style={styles.source}>{auther}</Text>
       </View>
     </View>
   );
-}
+};
 
 export default ListItem;
