@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen = () => {
+export default HomeScreen = ({ navigation }) => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
@@ -60,6 +60,9 @@ export default HomeScreen = () => {
       imageUrl={item.urlToImage}
       description={item.title}
       auther={item.auther}
+      onPress={() => {
+        navigation.navigate('Article');
+      }}
     />
   );
   return (
