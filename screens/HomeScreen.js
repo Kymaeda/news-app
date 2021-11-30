@@ -61,7 +61,7 @@ export default HomeScreen = ({ navigation }) => {
       description={item.title}
       auther={item.auther}
       onPress={() => {
-        navigation.navigate('Article');
+        navigation.navigate('Article', { article: item });
       }}
     />
   );
