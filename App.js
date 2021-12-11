@@ -6,7 +6,7 @@ import store from './store/index';
 export default App = () => {
   return (
     <Provider store={store}>
-      <AppNavigator />;
+      <AppNavigator />
     </Provider>
   );
 };
